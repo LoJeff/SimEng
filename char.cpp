@@ -1,7 +1,6 @@
 #include "char.h"
 
-Character::Character(float x, float y, float speed, string textureFile) {
-    m_spd = speed;
+Character::Character(float x, float y, string textureFile) {
     m_pos.x = x;
     m_pos.y = y;
     m_texture.loadFromFile(textureFile);

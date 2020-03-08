@@ -13,6 +13,7 @@ private:
  
     Sprite m_bkgdSprite;
     Texture m_bkgdTexture;
+    Vector2i m_locPos;
  
     Player m_player;
 

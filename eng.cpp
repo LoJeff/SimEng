@@ -34,23 +34,16 @@ void Engine::input() {
     if (Keyboard::isKeyPressed(Keyboard::Escape)) {
         m_window.close();
     }
- 
-    // Player Movement
-    if (Keyboard::isKeyPressed(Keyboard::A)) {
-        m_player.moveLeft();
-    } else {
-        m_player.stopLeft();
-    }
- 
-    if (Keyboard::isKeyPressed(Keyboard::D)) {
-        m_player.moveRight();
-    } else {
-        m_player.stopRight();
-    }
+
+    m_player.input(m_locPos);
 }
 
 void Engine::update(float timeElapsed)
 {
+    m_locPos = Mouse::getPosition(m_window);
+    if (Keyboard::isKeyPressed(Keyboard::P))
+    cout << m_locPos.x << " , " << m_locPos.y << endl;
+
     m_player.update(timeElapsed);
 }
 
@@ -60,7 +53,7 @@ void Engine::draw()
  
     // Draw everything
     m_window.draw(m_bkgdSprite);
-    m_window.draw(m_player.getSprite());
+    m_player.draw(m_window);
 
     m_window.display();
 }

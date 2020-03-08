@@ -1,23 +1,20 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/Graphics.hpp>
-#include "char.h"
+#include "pghost.h"
+#include "phuman.h"
 
-class Player : public Character {
+class Player {
 private:
-    bool m_left;
-    bool m_right;
+    PHuman m_human;
+    PGhost m_ghost;
+    float m_chainLen;
 public:
     Player();
 
-    void moveLeft();
-    void moveRight();
-
-    void stopLeft();
-    void stopRight();
-
+    void input(const Vector2i& locPos);
     void update(float timeElapsed);
+    void draw(RenderWindow &window);
 };
 
 #endif // PLAYER_H

@@ -12,15 +12,19 @@ LIBS=-lm -lsfml-graphics -lsfml-window -lsfml-system
 _DEPS = \
 	common.h \
 	char.h \
-	player.h \
-	eng.h
+	eng.h \
+	pghost.h \
+	phuman.h \
+	player.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = \
 	main.o \
 	char.o \
-	player.o \
-	eng.o
+	eng.o \
+	phuman.o \
+	pghost.o \
+	player.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 

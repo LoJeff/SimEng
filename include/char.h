@@ -11,10 +11,9 @@ protected:
     Vector2f m_pos;
     Sprite m_sprite;
     Texture m_texture;
-    float m_spd;
 
 public:
-    Character(float x, float y, float speed = 0,
+    Character(float x, float y,
         string textureFile = "texture/default.png");
     Sprite getSprite();
     virtual void update(float elapsedTime) = 0;
