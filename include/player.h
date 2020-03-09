@@ -9,6 +9,8 @@ private:
     PHuman m_human;
     PGhost m_ghost;
     float m_chainLen;
+
+    bool m_chain;
 public:
     Player();
 

@@ -8,12 +8,14 @@ class PHuman : public Character {
 private:
     bool m_left;
     bool m_right;
+    bool m_stop;
 
     Vector2f m_vel;
     Vector2f m_velCap;
     Vector2f m_acc;
     Vector2f m_dec;
 
+    Vector2f m_cen;
     Vector2f m_dim;
     Vector2f m_prevPos;
 public:
@@ -21,18 +23,19 @@ public:
 
     void moveLeft() { m_left = true; };
     void moveRight() { m_right = true; };
+    void stop() { m_stop = true; };
     void jump();
 
     void stopLeft() { m_left = false; };
     void stopRight() { m_right = false; };
+    void free() { m_stop = false; };
     bool onGround();
 
-    float cenX() { return m_pos.x + m_dim.x/2; };
-    float cenY() { return m_pos.y + m_dim.y/2; };
+    const Vector2f& cen() { return m_cen; };
 
     void input();
     void update(float timeElapsed);
-    void revertPos() { m_pos = m_prevPos; };
+    void revertPos();
 };
 
 #endif // PHUMAN_H

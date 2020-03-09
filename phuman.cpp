@@ -55,4 +55,11 @@ void PHuman::update(float timeElapsed) {
 
     m_pos.x += m_vel.x * timeElapsed;
     m_sprite.setPosition(m_pos);
+    m_cen.x = m_pos.x + m_dim.x/(float)2;
+    m_cen.y = m_pos.y + m_dim.y/(float)2;
+}
+
+void PHuman::revertPos() {
+    m_pos = m_prevPos;
+    m_sprite.setPosition(m_pos);
 }

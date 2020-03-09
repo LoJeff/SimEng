@@ -16,6 +16,7 @@ public:
     Character(float x, float y,
         string textureFile = "texture/default.png");
     Sprite getSprite();
+    const Vector2f& pos() { return m_pos; };
     virtual void update(float elapsedTime) = 0;
 };
 
