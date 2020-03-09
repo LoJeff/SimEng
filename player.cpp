@@ -7,7 +7,7 @@ Player::Player() :
     m_chain(true) {
 }
 
-void Player::input(const Vector2i& locPos) {
+void Player::input(const Vector2f& locPos) {
     m_human.input();
     m_ghost.input(locPos);
 }
@@ -24,8 +24,8 @@ void Player::update(float timeElapsed) {
         if (distSqr >= m_chainLen*m_chainLen) {
             float ratio = m_chainLen / sqrtf(distSqr);
             Vector2f newPos;
-            newPos.x = m_human.cen().x + distX*ratio - m_ghost.dim().x/2;
-            newPos.y = m_human.cen().y + distY*ratio - m_ghost.dim().y/2;
+            newPos.x = m_human.cen().x + distX*ratio - m_ghost.dim().x/2.f;
+            newPos.y = m_human.cen().y + distY*ratio - m_ghost.dim().y/2.f;
             m_ghost.updatePos(newPos);
         }
     }

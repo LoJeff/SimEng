@@ -4,11 +4,11 @@ Engine::Engine() {
     Vector2f resolution;
     resolution.x = VideoMode::getDesktopMode().width;
     resolution.y = VideoMode::getDesktopMode().height;
- 
+
     m_window.create(VideoMode(resolution.x, resolution.y),
         "SimEng",
         Style::Default);
- 
+
     m_bkgdTexture.loadFromFile("texture/background.jpg");
     m_bkgdSprite.setTexture(m_bkgdTexture);
  
@@ -16,7 +16,9 @@ Engine::Engine() {
 
 void Engine::start() {
     Clock clock;
-
+    Vector2u bkgdSize = m_bkgdTexture.getSize();
+    View view1(FloatRect(0.f, 0.f, bkgdSize.x, bkgdSize.y));
+    m_window.setView(view1);
     while (m_window.isOpen())
     {
         // Restart clock and get elapsed time
@@ -40,7 +42,7 @@ void Engine::input() {
 
 void Engine::update(float timeElapsed)
 {
-    m_locPos = Mouse::getPosition(m_window);
+    m_locPos = m_window.mapPixelToCoords(Mouse::getPosition(m_window));
     if (Keyboard::isKeyPressed(Keyboard::P))
     cout << m_locPos.x << " , " << m_locPos.y << endl;
 

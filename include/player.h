@@ -14,7 +14,7 @@ private:
 public:
     Player();
 
-    void input(const Vector2i& locPos);
+    void input(const Vector2f& locPos);
     void update(float timeElapsed);
     void draw(RenderWindow &window);
 };

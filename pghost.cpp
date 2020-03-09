@@ -11,7 +11,7 @@ PGhost::PGhost(PHuman *human) :
     m_human(human) {
 }
 
-void PGhost::input(const Vector2i& locPos) {
+void PGhost::input(const Vector2f& locPos) {
     // Calculate distance from center of hitbox
     m_dir.x = locPos.x - m_cen.x;
     m_dir.y = locPos.y - m_cen.y;
@@ -55,8 +55,8 @@ void PGhost::update(float timeElapsed) {
     m_pos.y += timeElapsed * m_vel.y;
 
     m_sprite.setPosition(m_pos);
-    m_cen.x = m_pos.x + (float) m_dim.x/((float)2);
-    m_cen.y = m_pos.y + (float) m_dim.y/((float)2);
+    m_cen.x = m_pos.x + m_dim.x/2.f;
+    m_cen.y = m_pos.y + m_dim.y/2.f;
 }
 
 void PGhost::updatePos(const Vector2f& pos) {

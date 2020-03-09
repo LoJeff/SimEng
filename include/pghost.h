@@ -28,7 +28,7 @@ public:
     const Vector2f& dim() { return m_dim; };
     const Vector2f& cen() { return m_cen; };
 
-    void input(const Vector2i& locPos);
+    void input(const Vector2f& locPos);
     void update(float timeElapsed);
     void updatePos(const Vector2f& pos);
 };

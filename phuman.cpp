@@ -47,16 +47,16 @@ void PHuman::update(float timeElapsed) {
         }
     } else if (m_vel.x != 0) { // Decelerate
         if (m_vel.x > 0) { // Right
-            m_vel.x = min(m_vel.x + m_dec.x, (float) 0);
+            m_vel.x = min(m_vel.x + m_dec.x, 0.f);
         } else { // Left
-            m_vel.x = max(m_vel.x - m_dec.x, (float) 0);
+            m_vel.x = max(m_vel.x - m_dec.x, 0.f);
         }
     }
 
     m_pos.x += m_vel.x * timeElapsed;
     m_sprite.setPosition(m_pos);
-    m_cen.x = m_pos.x + m_dim.x/(float)2;
-    m_cen.y = m_pos.y + m_dim.y/(float)2;
+    m_cen.x = m_pos.x + m_dim.x/2.f;
+    m_cen.y = m_pos.y + m_dim.y/2.f;
 }
 
 void PHuman::revertPos() {
