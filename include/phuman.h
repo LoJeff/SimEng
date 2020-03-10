@@ -1,7 +1,6 @@
 #ifndef PHUMAN_H
 #define PHUMAN_H
 
-#include <SFML/Graphics.hpp>
 #include "char.h"
 
 class PHuman : public Character {

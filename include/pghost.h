@@ -1,7 +1,6 @@
 #ifndef PGHOST_H
 #define PGHOST_H
 
-#include <SFML/Graphics.hpp>
 #include "char.h"
 #include "phuman.h"
 
