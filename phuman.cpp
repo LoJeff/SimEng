@@ -5,6 +5,7 @@ PHuman::PHuman() :
     m_vel(0, 0),
     m_velCap(400, 800),
     m_acc(50, 100),
+    m_dec(100, 200),
     m_dim(110, 230) {
     m_left = false;
     m_right = false;
@@ -47,9 +48,9 @@ void PHuman::update(float timeElapsed) {
         }
     } else if (m_vel.x != 0) { // Decelerate
         if (m_vel.x > 0) { // Right
-            m_vel.x = min(m_vel.x + m_dec.x, 0.f);
-        } else { // Left
             m_vel.x = max(m_vel.x - m_dec.x, 0.f);
+        } else { // Left
+            m_vel.x = min(m_vel.x + m_dec.x, 0.f);
         }
     }
 

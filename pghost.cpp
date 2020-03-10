@@ -5,9 +5,9 @@ PGhost::PGhost(PHuman *human) :
     m_vel(0, 0),
     m_velCap(500, 500),
     m_acc(60, 60),
-    m_dec(160, 160),
+    m_dec(120, 120),
     m_dim(50, 70),
-    m_tarRad(6),
+    m_tarRad(5),
     m_human(human) {
 }
 
@@ -29,16 +29,16 @@ void PGhost::input(const Vector2f& locPos) {
 float PGhost::updateVel(const float &dir, const float &vel, const float &acc,
     const float &dec, const float &velCap) {
     if (dir > (float) 0) {
-        if (vel > (float) 0) {
+        if (vel >= (float) 0) {
             return min(vel + acc * dir, velCap);
         } else {
-            return max(vel + dec * dir, (float) 0);
+            return vel + dec * dir;
         }
     } else if (dir < (float) 0) {
-        if (vel < (float) 0) {
+        if (vel <= (float) 0) {
             return max(vel + acc * dir, -velCap);
         } else {
-            return min(vel + dec * dir, (float) 0);
+            return vel + dec * dir;
         }
     } else {
         return (float) 0;
