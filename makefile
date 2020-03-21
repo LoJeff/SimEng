@@ -16,7 +16,8 @@ _DEPS = \
 	pghost.h \
 	phuman.h \
 	player.h \
-	stage.h
+	stage.h \
+	quad.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = \
@@ -26,7 +27,8 @@ _OBJ = \
 	phuman.o \
 	pghost.o \
 	player.o \
-	stage.o
+	stage.o \
+	quad.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
